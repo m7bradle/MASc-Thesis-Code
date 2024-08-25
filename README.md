@@ -71,4 +71,4 @@ The `numpy_saves` folder is used to cache some intermediary results, particularl
 The `matlab_scripts` folder contains some helper scripts and glue code for interacting with GrassGraph and fetching datasets (SHREC) bundled with it.
 
 ## License considerations
-This repo is currently GPLv3 to ease compatibility with use of GrassGraph, though earlier versions which include useful dataset preparation code which predates use of GrassGraph and is not derived froom it are available under MIT terms.
+This repo is currently GPLv3 to ease compatibility with use of GrassGraph, though earlier versions which include useful dataset preparation code which predates use of GrassGraph and is not derived from it are available under MIT terms.
