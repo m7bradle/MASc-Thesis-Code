@@ -2,24 +2,24 @@
 Code relevant to reproducing the results of my MASc thesis.
 
 ## Setup of dependencies
-To install the needed packages, run `source install.source` which will set up a Conda env and install all the packages needed using pip inside it. Running `source activate.source` will activate the conda env.
+To install the needed python packages, run `source install.source` which will set up a Conda env and install all the packages needed using pip inside it. Running `source activate.source` will activate the Conda env.
 
 These could probably be installed in a similar way in a regular pip env if you prefer. Conda was simply easier during development for some CUDA-related packages, and has support for nested pip usage now.
 
-You will need to obtain a copy of GrassGraph. We provide a lightly modified version on github with some needed configuration changes to quash graphs from popping up during runtime. You can obtain it by running `source clone_grassgraphs.source`.
+You will need to obtain a copy of GrassGraph. We provide a lightly modified version on github (https://github.com/m7bradle/GrassGraphs) with some needed configuration changes to prevent graphs from popping up during runtime. You can obtain it by running `source clone_grassgraphs.source`.
 
 ## Downloading the Kitti dataset and semantic labels
 You will need to obtain the Kitti dataset from https://www.cvlibs.net/datasets/kitti/, specifically sequences 00, 02, 05, and 06 (you may also want 07). See `./kitti_dataset/README.txt` for details.
 
 You will also need to obtain the semantic labels we generated for the kitti dataset. They can be obtained from the Internet Archive by running `./semantic_label_data/download.sh`. See `./semantic_label_data/README.txt` for details. 
 
-We provide captured results from running DSO on KITTI for convenience, so it is not required to compile and run the modified version of DSO required. See `./kitti_dso_files/README.txt` for details.
+We provide captured results (poses, detected points) from running the nesisary modified version of DSO on KITTI, so that it is not required to compile and run DSO yourself. This modified version of DSO which saves this data is not ours and is somewhat difficult to compile, requiring some very old versions of depenencies. See `./kitti_dso_files/README.txt` for details.
 
 ## Launching the first set of experiments
-The first set of results which characterized generated landmarks themselves can be launched once setup is complete using various `characterizing_landmarks_sequence_*_compensated.sh` and `characterizing_landmarks_sequence_*_uncompensated.sh` scripts.
+The first set of experiments which characterized generated landmarks themselves can be launched once setup is complete using various `characterizing_landmarks_sequence_*_compensated.sh` and `characterizing_landmarks_sequence_*_uncompensated.sh` scripts.
 
 ## Launching the Second set of experiments
-The second set of results which investigated the feasibility of using GrassGraph to associate these landmarks are meant to be run in parallel, for brevity. By default 8 threads are specified, with runfiles to be run being `measure_assoc_perf_kitti_*.sh` and `measure_detailed_outliers_kitti_*.sh` and `measure_assoc_perf_shrec_*.sh`. The python scripts `gen_sensitivity_runfiles_noise_and_outliers.py` and `gen_sensitivity_runfiles_detailed_outliers.py` and `gen_sensitivity_runfiles_noise_and_outliers_shrec_data.py` can be used to generate new runfiles for a different number of concurrent jobs.
+The second set of experiments which investigated the feasibility of using GrassGraph to associate these landmarks are meant to be run in parallel, for brevity. By default 8 threads are specified, with runfiles to be run being `measure_assoc_perf_kitti_*.sh` and `measure_detailed_outliers_kitti_*.sh` and `measure_assoc_perf_shrec_*.sh`. The python scripts `gen_sensitivity_runfiles_noise_and_outliers.py` and `gen_sensitivity_runfiles_detailed_outliers.py` and `gen_sensitivity_runfiles_noise_and_outliers_shrec_data.py` can be used to generate new runfiles for a different number of concurrent jobs.
 
 ## Generating results and where to find them
 The results from the first set of experiments are generated as part of running them and require no further preparation. In particular, they can be found in `./results_output/` at:
