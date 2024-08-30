@@ -1,0 +1,5 @@
+seq00_semantic_mask_output_cityscape_key.zip
+seq02_semantic_mask_output_cityscape_key.zip
+seq05_semantic_mask_output_cityscape_key.zip
+seq06_semantic_mask_output_cityscape_key.zip
+seq07_semantic_mask_output_cityscape_key.zip
